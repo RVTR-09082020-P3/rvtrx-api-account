@@ -40,8 +40,8 @@ namespace RVTR.Account.UnitTesting.Tests
     [Fact]
     public async void Test_Controller_Delete()
     {
-      var resultFail = await _controller.Delete(0);
-      var resultPass = await _controller.Delete(1);
+      var resultFail = await _controller.Delete("0");
+      var resultPass = await _controller.Delete("1");
 
       Assert.NotNull(resultFail);
       Assert.NotNull(resultPass);
@@ -51,8 +51,8 @@ namespace RVTR.Account.UnitTesting.Tests
     public async void Test_Controller_Get()
     {
       var resultMany = await _controller.Get();
-      var resultFail = await _controller.Get(-5);
-      var resultOne = await _controller.Get(-1);
+      var resultFail = await _controller.Get("-5");
+      var resultOne = await _controller.Get("-1");
 
       Assert.NotNull(resultMany);
       Assert.NotNull(resultFail);
@@ -78,7 +78,7 @@ namespace RVTR.Account.UnitTesting.Tests
     [Fact]
     public async void Test_404_Response()
     {
-      var result = await _controller.Get(-100);
+      var result = await _controller.Get("-100");
 
       Assert.IsType<NotFoundObjectResult>(result);
     }
