@@ -41,7 +41,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <param name="email"></param>
     /// <returns></returns>
-    [HttpDelete("{id}")]
+    [HttpDelete("{email}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(string email)
@@ -52,6 +52,12 @@ namespace RVTR.Account.WebApi.Controllers
         AccountModel accountModel = await _unitOfWork.Account.SelectByEmailAsync(email);
 
         _logger.LogDebug("Deleting an account by its email...");
+
+        if (accountModel == null)
+        {
+          _logger.LogWarning($"Account with email {email} does not exist.");
+          return NotFound(email);
+        }
 
         await _unitOfWork.Account.DeleteAsync(accountModel.Id);
         await _unitOfWork.CommitAsync();
@@ -88,7 +94,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <param name="email"></param>
     /// <returns></returns>
-    [HttpGet("{id}")]
+    [HttpGet("{email}")]
     [ProducesResponseType(typeof(AccountModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get(string email)
@@ -97,6 +103,12 @@ namespace RVTR.Account.WebApi.Controllers
       AccountModel accountModel = await _unitOfWork.Account.SelectByEmailAsync(email);
 
       _logger.LogDebug("Getting an account by its email...");
+
+      if (accountModel == null)
+      {
+        _logger.LogWarning($"Account with email {email} does not exist.");
+        return NotFound(email);
+      }
 
       accountModel = await _unitOfWork.Account.SelectAsync(accountModel.Id);
 
