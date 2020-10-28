@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using RVTR.Account.ObjectModel.Interfaces;
 using RVTR.Account.ObjectModel.Models;
 
 namespace RVTR.Account.DataContext.Repositories
@@ -10,7 +11,7 @@ namespace RVTR.Account.DataContext.Repositories
   /// Represents the _Repository_ generic
   /// </summary>
   /// <typeparam name="TEntity"></typeparam>
-  public class AccountRepository : Repository<AccountModel>
+  public class AccountRepository : Repository<AccountModel>, IAccountRepository
   {
     public AccountRepository(AccountContext context) : base(context) { }
 
@@ -28,7 +29,7 @@ namespace RVTR.Account.DataContext.Repositories
       .ToListAsync();
 
     // Select an account by email instead of by ID, as is the case with SelectAsync(id)
-    public override async Task<AccountModel> SelectByEmailAsync(string email) => await Db
+    public virtual async Task<AccountModel> SelectByEmailAsync(string email) => await Db
       .Include(x => x.Address)
       .Include(x => x.Profiles)
       .Include(x => x.Payments)

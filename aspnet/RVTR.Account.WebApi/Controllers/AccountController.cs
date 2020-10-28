@@ -104,15 +104,6 @@ namespace RVTR.Account.WebApi.Controllers
 
       _logger.LogDebug("Getting an account by its email...");
 
-      if (accountModel == null)
-      {
-        _logger.LogWarning($"Account with email {email} does not exist.");
-        return NotFound(email);
-      }
-
-      accountModel = await _unitOfWork.Account.SelectAsync(accountModel.Id);
-
-
       if (accountModel is AccountModel theAccount)
       {
         _logger.LogInformation($"Retrieved the account with email {email}, ID: {accountModel.Id}.");

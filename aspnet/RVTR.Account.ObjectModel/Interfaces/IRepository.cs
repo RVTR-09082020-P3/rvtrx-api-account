@@ -10,7 +10,6 @@ namespace RVTR.Account.ObjectModel.Interfaces
     Task InsertAsync(TEntity entry);
     Task<IEnumerable<TEntity>> SelectAsync();
     Task<TEntity> SelectAsync(int id);
-    Task<TEntity> SelectByEmailAsync(string email); // Implementation of required method to select by email in AccountController.cs
     void Update(TEntity entry);
   }
 }

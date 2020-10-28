@@ -20,7 +20,7 @@ namespace RVTR.Account.UnitTesting.Tests
     public AccountControllerTest()
     {
       var loggerMock = new Mock<ILogger<AccountController>>();
-      var repositoryMock = new Mock<IRepository<AccountModel>>();
+      var repositoryMock = new Mock<IAccountRepository>();
       var unitOfWorkMock = new Mock<IUnitOfWork>();
 
       repositoryMock.Setup(m => m.DeleteAsync(0)).Throws(new Exception());
