@@ -12,9 +12,9 @@ namespace RVTR.Account.ObjectModel.Models
 
     public string Email { get; set; }
 
-    public string familyName { get; set; }
+    public string FamilyName { get; set; }
 
-    public string givenName { get; set; }
+    public string GivenName { get; set; }
 
     public string Phone { get; set; }
 
@@ -35,11 +35,11 @@ namespace RVTR.Account.ObjectModel.Models
       {
         yield return new ValidationResult("Email cannot be null.");
       }
-      if (string.IsNullOrEmpty(familyName))
+      if (string.IsNullOrEmpty(FamilyName))
       {
         yield return new ValidationResult("familyName cannot be null.");
       }
-      if (string.IsNullOrEmpty(givenName))
+      if (string.IsNullOrEmpty(GivenName))
       {
         yield return new ValidationResult("givenName cannot be null.");
       }

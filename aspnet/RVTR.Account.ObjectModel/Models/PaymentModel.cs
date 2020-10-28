@@ -11,13 +11,13 @@ namespace RVTR.Account.ObjectModel.Models
   {
     public int Id { get; set; }
 
-    public DateTime cardExpirationDate { get; set; }
+    public DateTime CardExpirationDate { get; set; }
 
-    public string cardNumber { get; set; }
+    public string CardNumber { get; set; }
 
-    public string securityCode { get; set; }
+    public string SecurityCode { get; set; }
 
-    public string cardName { get; set; }
+    public string CardName { get; set; }
 
     public int AccountId { get; set; }
     public AccountModel Account { get; set; }
@@ -29,11 +29,11 @@ namespace RVTR.Account.ObjectModel.Models
     /// <returns></returns>
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-      if (string.IsNullOrEmpty(cardName))
+      if (string.IsNullOrEmpty(CardName))
       {
         yield return new ValidationResult("cardName cannot be null.");
       }
-      if (string.IsNullOrEmpty(cardNumber))
+      if (string.IsNullOrEmpty(CardNumber))
       {
         yield return new ValidationResult("cardNumber cannot be null.");
       }

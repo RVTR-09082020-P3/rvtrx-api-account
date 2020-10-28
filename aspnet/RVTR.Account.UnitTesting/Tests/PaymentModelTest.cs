@@ -14,9 +14,9 @@ namespace RVTR.Account.UnitTesting.Tests
         new PaymentModel()
         {
           Id = 0,
-          cardName = "name",
-          cardNumber = "1234-1234-1234-1234",
-          securityCode = "111",
+          CardName = "name",
+          CardNumber = "1234-1234-1234-1234",
+          SecurityCode = "111",
           AccountId = 0,
           Account = null,
         }
