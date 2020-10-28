@@ -37,6 +37,14 @@ namespace RVTR.Account.ObjectModel.Models
       {
         yield return new ValidationResult("cardNumber cannot be null.");
       }
+      if (string.IsNullOrEmpty(SecurityCode))
+      {
+        yield return new ValidationResult("Security code cannot be null.");
+      }
+      if (CardExpirationDate == null)
+      {
+        yield return new ValidationResult("Expiration date cannot be null.");
+      }
     }
   }
 }

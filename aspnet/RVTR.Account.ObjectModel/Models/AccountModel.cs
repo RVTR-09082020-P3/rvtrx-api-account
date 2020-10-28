@@ -31,6 +31,10 @@ namespace RVTR.Account.ObjectModel.Models
       {
         yield return new ValidationResult("Account name cannot be null.");
       }
+      if (string.IsNullOrEmpty(Email))
+      {
+        yield return new ValidationResult("Email cannot be null.");
+      }
     }
   }
 }
