@@ -37,7 +37,7 @@ namespace RVTR.Account.ObjectModel.Models
     [Required(ErrorMessage = "Account is required")]
     public AccountModel Account { get; set; }
 
-    [RegularExpression(@"^(http(s?):\/\/)([\w|\s])([\/|.|\w|\s|-])*\.(?:jpg|png|jpeg|gif)$", ErrorMessage = "Image URI must be a real image URI.")]
+    [RegularExpression(@"^(http(s?):\/\/)([\w])([\/|.|\w|\s|-|&|?|=])*$", ErrorMessage = "Image URI must be a real image URI.")]
     public string ImageUri { get; set; } = "https://bulma.io/images/placeholders/256x256.png"; //Default is bulma placeholder
 
     /// <summary>

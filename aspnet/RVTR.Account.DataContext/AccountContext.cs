@@ -87,21 +87,24 @@ namespace RVTR.Account.DataContext
         {
           Id = -1,
           Email = "Test@test.com",
-          FamilyName = "Jones",
-          GivenName = "Tom",
+          FamilyName = "Emily",
+          GivenName = "Thomson",
           Phone = "1234567891",
           Type = "Adult",
-          AccountId = -1
+          AccountId = -1,
+          ImageUri = "https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+
         },
         new ProfileModel()
         {
           Id = 1,
           AccountId = 1,
           Email = "demo.camper@revature.com",
-          FamilyName = "FamilyName",
-          GivenName = "GivenName",
+          FamilyName = "Smith",
+          GivenName = "Jimmy",
           Phone = "123-456-7891",
-          Type = "Type"
+          Type = "Type",
+          ImageUri = "https://avataaars.io/?avatarStyle=Circle&topType=WinterHat4&accessoriesType=Round&hatColor=Red&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Default&eyebrowType=RaisedExcitedNatural&mouthType=Smile&skinColor=DarkBrown"
         }
       );
     }
